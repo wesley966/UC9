@@ -1,17 +1,16 @@
-
 package conexaoDAO;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-    
-    public static Connection conectar() {
+     public static Connection conectar() {
         
          Connection conexao = null;
 
-        String url = "jdbc:postgresql://localhost/Banco_app";
+        String url = "jdbc:postgresql://localhost/Zoologico_App";
         String usuario = "postgres";
         String senha = "root";
 
@@ -25,4 +24,5 @@ public class Conexao {
 
         return conexao; 
     }
+
 }
