@@ -11,35 +11,32 @@ public class FrmPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmPrincipal.class.getName());
 
-    /**
-     * Creates new form FrmPrincipal
-     */
+  
     public FrmPrincipal() {
         initComponents();
           setLocationRelativeTo(null);
+         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+         
+          carregarUsuario();
 
-    setExtendedState(
-            javax.swing.JFrame.MAXIMIZED_BOTH
-    );
-
-    carregarUsuario();
-
-    aplicarPermissoes();
+      aplicarPermissoes();
     
-    setDefaultCloseOperation(
+      setDefaultCloseOperation(
         javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE
 );
     }
 
-  
+ 
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DesktopPrincipal = new javax.swing.JDesktopPane();
+        desktopComFundo2 = new view.DesktopComFundo();
         jPanel1 = new javax.swing.JPanel();
-        lblNivel = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
+        lblNivel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuSair = new javax.swing.JMenuItem();
@@ -65,43 +62,35 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout DesktopPrincipalLayout = new javax.swing.GroupLayout(DesktopPrincipal);
-        DesktopPrincipal.setLayout(DesktopPrincipalLayout);
-        DesktopPrincipalLayout.setHorizontalGroup(
-            DesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        DesktopPrincipalLayout.setVerticalGroup(
-            DesktopPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
-        );
+        desktopComFundo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 153, 0), 2));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        lblNivel.setForeground(new java.awt.Color(255, 255, 255));
-        lblNivel.setText("Nível");
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 153, 0), 2));
 
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuário");
+
+        lblNivel.setForeground(new java.awt.Color(255, 255, 255));
+        lblNivel.setText("Nível");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(lblNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNivel)
-                    .addComponent(lblUsuario))
+                    .addComponent(lblUsuario)
+                    .addComponent(lblNivel))
                 .addContainerGap())
         );
 
@@ -176,13 +165,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(DesktopPrincipal)
+            .addComponent(desktopComFundo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(DesktopPrincipal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(desktopComFundo2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -299,28 +288,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
      
     }//GEN-LAST:event_formWindowClosed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new FrmPrincipal().setVisible(true));
     }
 
@@ -328,7 +298,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane DesktopPrincipal;
+    private view.DesktopComFundo desktopComFundo2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -399,7 +369,7 @@ private void abrirTela(
 
     for (
             JInternalFrame frame :
-            DesktopPrincipal.getAllFrames()
+            desktopComFundo2.getAllFrames()
     ) {
 
         if (
@@ -432,7 +402,7 @@ private void abrirTela(
         }
     }
 
-    DesktopPrincipal.add(tela);
+    desktopComFundo2.add(tela);
 
     tela.setVisible(true);
 
@@ -444,13 +414,13 @@ private void centralizarInternalFrame(
 
     int x =
             (
-                DesktopPrincipal.getWidth()
+                desktopComFundo2.getWidth()
                 - tela.getWidth()
             ) / 2;
 
     int y =
             (
-                DesktopPrincipal.getHeight()
+                desktopComFundo2.getHeight()
                 - tela.getHeight()
             ) / 2;
 
@@ -467,3 +437,4 @@ private void centralizarInternalFrame(
     tela.setLocation(x, y);
 }
 }
+
